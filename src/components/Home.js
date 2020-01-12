@@ -12,9 +12,5 @@ export default compose(
   withQuestions,
   connect(mapStateToProps, mapDispatchToProps)
 )(({ state, ...props }) => {
-  return (
-    <RequireLogin>
-      <div>home</div>
-    </RequireLogin>
-  );
+  return <div>home</div>;
 });

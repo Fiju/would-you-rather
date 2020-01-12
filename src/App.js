@@ -1,15 +1,25 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Login from "./components/Login";
-import Home from "./components/Home";
 import Main from "./components/Main";
+import Authenticator from "./components/Authenticator";
 
 function App() {
   return (
     <Switch>
-      <Route exact path="/" component={Main} />
+      <Route exact path="/" component={Authenticator} />
       <Route exact path="/login" component={Login} />
-      <Route exact path="/home" component={Home} />
+      <Route
+        render={() => (
+          <>
+            <div>
+              <Switch>
+                <Route path="/(home|add|leaderboard)" component={Main} />
+              </Switch>
+            </div>
+          </>
+        )}
+      />
     </Switch>
   );
 }
