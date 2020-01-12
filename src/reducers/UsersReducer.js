@@ -5,7 +5,7 @@ import * as types from "../actions/types";
 const usersInitialState = {
   isFetching: null,
   subscribedUsers: {},
-  loggedInUser: {}
+  loggedInUser: null
 };
 
 export default (state = usersInitialState, { type, payload }) => {
@@ -35,4 +35,9 @@ export function selectIsFetching(globalState) {
 
 export const selectSubscribedUsers = createSelector(selectLocalState, state =>
   Object.values(state.subscribedUsers)
+);
+
+export const selectLoggedInUser = createSelector(
+  selectLocalState,
+  state => state.loggedInUser
 );
