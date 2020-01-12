@@ -26,3 +26,7 @@ export function selectIsFetching(globalState) {
   const state = selectLocalState(globalState);
   return state.isFetching;
 }
+
+export const selectQuestion = createSelector(selectLocalState, state =>
+  Object.values(state.avilableQuestions)
+);
