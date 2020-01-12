@@ -1,18 +1,18 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import { createBrowserHistory } from "history";
 import { routerMiddleware } from "connected-react-router";
-import sagaMiddleware from "redux-saga";
+import createSagaMiddleware from "redux-saga";
 import invariant from "redux-immutable-state-invariant";
 import rootReducer from "../reducers";
+import rootSaga from "../sagas/rootSaga";
 
 export const history = createBrowserHistory();
 
+const sagaMiddleware = createSagaMiddleware();
 const middleware = [sagaMiddleware, routerMiddleware(history)];
 
 let composeEnhancers = compose;
 if (process.env.NODE_ENV !== "production") {
-  const logger = require("redux-logger").default;
-  middleware.push(logger);
   middleware.push(invariant());
   // integration with browser developer tools
   composeEnhancers =
@@ -24,5 +24,6 @@ export const configureStore = () => {
     rootReducer,
     composeEnhancers(applyMiddleware(...middleware))
   );
+  sagaMiddleware.run(rootSaga);
   return store;
 };
