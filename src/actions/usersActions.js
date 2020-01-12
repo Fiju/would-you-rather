@@ -14,3 +14,8 @@ export const usersDataFetched = users => ({
   type: types.USERS_FETCH_SUCCESS,
   payload: users
 });
+
+export const userLogin = id => ({
+  type: types.USER_LOGIN,
+  payload: id
+});
