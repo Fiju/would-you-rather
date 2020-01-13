@@ -12,7 +12,18 @@ export default (state = moviesInitialState, { type, payload }) => {
     case types.QUESTIONS_FETCH:
       return { ...state, isFetching: true };
     case types.QUESTIONS_FETCH_SUCCESS:
-      return { ...state, avilableQuestions: payload };
+      return { ...state, avilableQuestions: payload, isFetching: false };
+    case types.QUESTIONS_ADD_REQUEST:
+      return {
+        ...state,
+        isFetching: true
+      };
+    case types.QUESTIONS_ADD_REQUEST_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        avilableQuestions: { ...state.avilableQuestions, payload }
+      };
     default:
       return state;
   }
