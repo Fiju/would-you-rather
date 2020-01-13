@@ -1,9 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { requestUsersIfNeeded } from "../actions/usersActions";
+import { selectSubscribedUsers } from "../reducers/UsersReducer";
 
 function mapStateToProps(state, ownProps) {
-  return { state };
+  return { users: selectSubscribedUsers(state) };
 }
 
 const mapDispatchToProps = {

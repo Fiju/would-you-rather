@@ -2,10 +2,7 @@ import React, { useState } from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import withUsers from "../containers/withUsers";
-import { selectSubscribedUsers } from "../reducers/UsersReducer";
 import { userLogin } from "../actions/usersActions";
-
-const mapStateToProps = state => ({ users: selectSubscribedUsers(state) });
 
 const mapDispatchToProps = {
   userLogin
@@ -13,7 +10,7 @@ const mapDispatchToProps = {
 
 export default compose(
   withUsers,
-  connect(mapStateToProps, mapDispatchToProps)
+  connect(null, mapDispatchToProps)
 )(({ users, userLogin, ...props }) => {
   const [selectedUser, setSelectedUser] = useState("");
   return (
