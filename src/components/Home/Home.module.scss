@@ -1,0 +1,36 @@
+.pollContainer {
+  border-bottom: 2px solid;
+  padding: 16px 0;
+  .authorName {
+    font-weight: bold;
+  }
+
+  .innerContainer {
+    display: flex;
+    margin-top: 20px;
+
+    img {
+      width: 150px;
+      height: 150px;
+    }
+
+    .questionContainer {
+      flex-direction: column;
+      display: flex;
+      justify-content: space-evenly;
+      margin-left: 20px;
+
+      label {
+        margin-left: -10px;
+        font-weight: 600;
+        text-decoration: underline;
+      }
+
+      small::before {
+        content: "→";
+        font-size: 18px;
+        margin-right: 4px;
+      }
+    }
+  }
+}
