@@ -8,6 +8,8 @@ import Loader from "../Loader";
 import { PollItem } from "./PollItem";
 import withUsers from "../../containers/withUsers";
 
+import styles from "./Home.module.scss";
+
 const mapStateToProps = state => {
   const questions = selectQuestion(state);
   const loggedInUser = selectLoggedInUser(state).id;
@@ -31,11 +33,10 @@ export default compose(
   connect(mapStateToProps)
 )(({ answeredQuestion, unansweredQuestion, users, ...props }) => {
   const [showAnswered, toggleQuestionsDisplay] = useState(true);
-  console.log(answeredQuestion);
   return (
-    <div>
+    <div className={styles.homeContainer}>
       <button onClick={() => toggleQuestionsDisplay(!showAnswered)}>
-        Toggle
+        Click to show {showAnswered ? "Unanswered" : "Answered"} Question
       </button>
       <ul>
         {[...(showAnswered ? answeredQuestion : unansweredQuestion)].map(q => (
