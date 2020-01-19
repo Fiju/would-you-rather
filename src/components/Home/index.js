@@ -12,7 +12,7 @@ import styles from "./Home.module.scss";
 
 const mapStateToProps = state => {
   const questions = selectQuestion(state);
-  const loggedInUser = selectLoggedInUser(state).id;
+  const loggedInUser = state.users.loggedInUser;
   const answeredQuestion = questions.filter(
     question =>
       question.optionOne.votes.includes(loggedInUser) ||

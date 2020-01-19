@@ -17,7 +17,7 @@ export default (state = usersInitialState, { type, payload }) => {
     case types.USER_LOGIN:
       return {
         ...state,
-        loggedInUser: state.subscribedUsers[payload]
+        loggedInUser: payload
       };
     default:
       return state;
@@ -42,10 +42,9 @@ export const selectSubscribedUsers = createSelector(selectLocalState, state =>
   Object.values(state.subscribedUsers)
 );
 
-export const selectLoggedInUser = createSelector(
-  selectLocalState,
-  state => state.loggedInUser
-);
+export const selectLoggedInUser = (gloabalState, id) => {
+  return selectSubscribedUsersById(gloabalState)[id];
+};
 
 export const selectUserById = (globalState, id) =>
   selectSubscribedUsersById(globalState)[id];

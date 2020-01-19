@@ -24,6 +24,19 @@ export default (state = moviesInitialState, { type, payload }) => {
         isFetching: false,
         avilableQuestions: { ...state.avilableQuestions, payload }
       };
+
+    case types.QUESTION_SAVE_ANSWER: {
+      return {
+        ...state,
+        isFetching: true
+      };
+    }
+    case types.QUESTION_SAVE_ANSWER_SUCCESS: {
+      return {
+        ...state,
+        isFetching: false
+      };
+    }
     default:
       return state;
   }

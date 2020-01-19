@@ -4,7 +4,7 @@ import { requestSaveQuestion } from "../actions/questionActions";
 import { selectLoggedInUser } from "../reducers/UsersReducer";
 
 const mapStateToProps = state => ({
-  author: selectLoggedInUser(state).id
+  author: state.users.loggedInUser
 });
 
 const mapDispatchToProps = {

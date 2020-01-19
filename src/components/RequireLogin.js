@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { withRouter, Redirect } from "react-router-dom";
 import { selectLoggedInUser } from "../reducers/UsersReducer";
 
-const mapStateToProps = state => ({ isLoggedIn: selectLoggedInUser(state) });
+const mapStateToProps = state => ({ isLoggedIn: state.users.loggedInUser });
 
 class RequireLogin extends React.PureComponent {
   render() {

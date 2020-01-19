@@ -4,12 +4,11 @@ import { selectQuestionById } from "../reducers/QuestionsReducer";
 import { selectLoggedInUser, selectUserById } from "../reducers/UsersReducer";
 
 import styles from "./Question.module.scss";
-import withUsers from "../containers/withUsers";
-import { compose } from "redux";
+import { saveAnswer } from "../actions/questionActions";
 
 const mapStateToProps = (state, ownProps) => {
   const question = selectQuestionById(state, ownProps.match.params.questionId);
-  const user = selectLoggedInUser(state);
+  const user = selectLoggedInUser(state, state.users.loggedInUser);
   const author = selectUserById(state, question.author);
   return {
     question,
@@ -18,10 +17,14 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default compose(
-  withUsers,
-  connect(mapStateToProps)
-)(({ question, user, author, users }) => {
+const mapDispatchToProps = {
+  saveAnswer
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(({ question, user, author, saveAnswer }) => {
   const [selectedOption, setSelectedOption] = useState(null);
   const isAnswered = Boolean(user.answers[question.id]);
   const { optionOneUpvote, optionTwoUpvote, totalResponses } = {
@@ -81,7 +84,11 @@ export default compose(
                 />
                 {question.optionTwo.text}
               </label>
-              <button>Submit</button>
+              <button
+                onClick={() => saveAnswer(user.id, question.id, selectedOption)}
+              >
+                Submit
+              </button>
             </>
           )}
         </div>

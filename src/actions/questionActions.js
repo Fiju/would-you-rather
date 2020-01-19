@@ -24,3 +24,8 @@ export const addSavedQuestion = question => ({
   type: types.QUESTIONS_ADD_REQUEST_SUCCESS,
   payload: question
 });
+
+export const saveAnswer = (authedUser, qid, answer) => ({
+  type: types.QUESTION_SAVE_ANSWER,
+  payload: { authedUser, qid, answer }
+});
