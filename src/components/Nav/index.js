@@ -4,18 +4,21 @@ import { NavLink, withRouter } from "react-router-dom";
 
 import styles from "./Nav.module.scss";
 import { selectUserById } from "../../reducers/UsersReducer";
+import { logoutUser } from "../../actions/usersActions";
 
 const mapStateToProps = state => ({
   user: selectUserById(state, state.users.loggedInUser)
 });
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  logoutUser
+};
 
 export default withRouter(
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(({ user, ...props }) => {
+  )(({ user, logoutUser }) => {
     return (
       <section className={styles.container}>
         <nav className={styles.navContainer}>
@@ -32,7 +35,7 @@ export default withRouter(
           </div>
           <div className={styles.nav}>
             <span>{user.name}</span>
-            <span>Logout</span>
+            <span onClick={() => logoutUser()}>Logout</span>
           </div>
         </nav>
       </section>

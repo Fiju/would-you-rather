@@ -19,6 +19,12 @@ export default (state = usersInitialState, { type, payload }) => {
         ...state,
         loggedInUser: payload
       };
+    case types.USERS_LOGOUT: {
+      return {
+        ...state,
+        loggedInUser: null
+      };
+    }
     default:
       return state;
   }

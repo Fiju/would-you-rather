@@ -25,3 +25,7 @@ export const addUser = (form, res) => ({
   payload: form,
   res
 });
+
+export const logoutUser = () => ({
+  type: types.USERS_LOGOUT
+});
