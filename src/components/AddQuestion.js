@@ -14,7 +14,7 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(({ author, requestSaveQuestion }) => {
+)(({ author, requestSaveQuestion, history }) => {
   const [optionOne, setOptionOne] = useState("");
   const [optionTwo, setOptionTwo] = useState("");
   return (
@@ -22,13 +22,14 @@ export default connect(
       <input value={optionOne} onChange={e => setOptionOne(e.target.value)} />
       <input value={optionTwo} onChange={e => setOptionTwo(e.target.value)} />
       <button
-        onClick={() =>
+        onClick={() => {
           requestSaveQuestion({
             author,
             optionOneText: optionOne,
             optionTwoText: optionTwo
-          })
-        }
+          });
+          history.push("/home");
+        }}
       >
         Save
       </button>
