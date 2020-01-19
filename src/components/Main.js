@@ -8,6 +8,7 @@ import Nav from "./Nav";
 import AddQuestion from "./AddQuestion";
 import Home from "./Home";
 import LeaderBoard from "./LeaderBoard";
+import Question from "./Question";
 
 const mapStateToProps = state => ({ state });
 
@@ -25,6 +26,7 @@ export default connect(
           <Route path="/add" exact component={AddQuestion} />
           <Route path="/home" exact component={Home} />
           <Route path="/leaderboard" exact component={LeaderBoard} />
+          <Route path="/questions/:questionId" exact component={Question} />
         </Switch>
       </section>
     </RequireLogin>

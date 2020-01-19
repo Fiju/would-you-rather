@@ -38,6 +38,15 @@ export function selectIsFetching(globalState) {
   return state.isFetching;
 }
 
+const selectQuestionsById = createSelector(
+  selectLocalState,
+  state => state.avilableQuestions
+);
+
 export const selectQuestion = createSelector(selectLocalState, state =>
   Object.values(state.avilableQuestions)
 );
+
+export const selectQuestionById = (globalState, id) => {
+  return selectQuestionsById(globalState)[id];
+};

@@ -1,0 +1,47 @@
+.container {
+  border-bottom: 2px solid;
+  padding: 16px 0;
+
+  .authorName {
+    font-weight: bold;
+  }
+
+  .innerContainer {
+    display: flex;
+    margin-top: 20px;
+
+    img {
+      width: 150px;
+      height: 150px;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-left: 20px;
+      input {
+        margin-right: 10px;
+      }
+
+      button {
+        width: 250px;
+        height: 35px;
+        background-color: #912d20;
+        border: 1px solid #912d20;
+        color: white;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba(199, 81, 66, 0.85);
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}

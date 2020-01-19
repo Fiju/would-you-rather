@@ -32,10 +32,13 @@ export default compose(
   withUsers,
   connect(mapStateToProps)
 )(({ answeredQuestion, unansweredQuestion, users, ...props }) => {
-  const [showAnswered, toggleQuestionsDisplay] = useState(true);
+  const [showAnswered, toggleQuestionsDisplay] = useState(false);
   return (
     <div className={styles.homeContainer}>
-      <button onClick={() => toggleQuestionsDisplay(!showAnswered)}>
+      <button
+        className={styles.toggle}
+        onClick={() => toggleQuestionsDisplay(!showAnswered)}
+      >
         Click to show {showAnswered ? "Unanswered" : "Answered"} Question
       </button>
       <ul>

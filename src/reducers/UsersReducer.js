@@ -33,6 +33,11 @@ export function selectIsFetching(globalState) {
   return state.isFetching;
 }
 
+const selectSubscribedUsersById = createSelector(
+  selectLocalState,
+  state => state.subscribedUsers
+);
+
 export const selectSubscribedUsers = createSelector(selectLocalState, state =>
   Object.values(state.subscribedUsers)
 );
@@ -41,3 +46,6 @@ export const selectLoggedInUser = createSelector(
   selectLocalState,
   state => state.loggedInUser
 );
+
+export const selectUserById = (globalState, id) =>
+  selectSubscribedUsersById(globalState)[id];

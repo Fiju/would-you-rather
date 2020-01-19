@@ -1,8 +1,9 @@
 import React from "react";
+import { NavLink, withRouter } from "react-router-dom";
 
 import styles from "./Home.module.scss";
 
-export const PollItem = ({ poll, author }) => (
+export const PollItem = withRouter(({ poll, author }) => (
   <div className={styles.pollContainer}>
     <span className={styles.authorName}>{author.name} asks</span>
     <div className={styles.innerContainer}>
@@ -17,7 +18,8 @@ export const PollItem = ({ poll, author }) => (
           <i class="arrow right"></i>
           {poll.optionTwo.text}
         </small>
+        <NavLink to={`/questions/${poll.id}`}>{poll.id}</NavLink>
       </div>
     </div>
   </div>
-);
+));

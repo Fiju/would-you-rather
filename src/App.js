@@ -14,7 +14,10 @@ function App() {
           <>
             <div>
               <Switch>
-                <Route path="/(home|add|leaderboard)" component={Main} />
+                <Route
+                  path="/(home|add|leaderboard|questions)"
+                  component={Main}
+                />
               </Switch>
             </div>
           </>
