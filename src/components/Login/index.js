@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
 import withUsers from "../../containers/withUsers";
 import { userLogin } from "../../actions/usersActions";
 
@@ -43,6 +44,10 @@ export default compose(
           />
         </fieldset>
       </form>
+      <p>
+        Not subscribed. Get started by registering{" "}
+        <NavLink to="/signup"> here</NavLink>
+      </p>
     </main>
   );
 });

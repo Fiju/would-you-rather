@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { selectQuestionById } from "../reducers/QuestionsReducer";
-import { selectLoggedInUser, selectUserById } from "../reducers/UsersReducer";
+import { selectQuestionById } from "../../reducers/QuestionsReducer";
+import {
+  selectLoggedInUser,
+  selectUserById
+} from "../../reducers/UsersReducer";
 
 import styles from "./Question.module.scss";
-import { saveAnswer } from "../actions/questionActions";
+import { saveAnswer } from "../../actions/questionActions";
 
 const mapStateToProps = (state, ownProps) => {
   const question = selectQuestionById(state, ownProps.match.params.questionId);

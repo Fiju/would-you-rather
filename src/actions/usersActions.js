@@ -19,3 +19,9 @@ export const userLogin = id => ({
   type: types.USER_LOGIN,
   payload: id
 });
+
+export const addUser = (form, res) => ({
+  type: types.USERS_ADD_NEW_REQUEST,
+  payload: form,
+  res
+});

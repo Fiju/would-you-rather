@@ -210,3 +210,17 @@ export function _saveQuestionAnswer({ authedUser, qid, answer }) {
     }, 500);
   });
 }
+
+export const _saveUser = user =>
+  new Promise(res => {
+    setTimeout(() => {
+      users = {
+        ...users,
+        [user.id]: {
+          ...user
+        }
+      };
+
+      res(users);
+    }, 1000);
+  });

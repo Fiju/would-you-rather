@@ -17,6 +17,7 @@ function* fetchQuestions(action) {
 function* addQuestion(action) {
   const response = yield saveQuestion(action.payload);
   yield put(questionsActions.addSavedQuestion(response));
+  yield put({ type: types.USER_FETCH });
 }
 
 function* saveAnswer(action) {

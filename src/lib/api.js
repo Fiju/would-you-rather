@@ -7,3 +7,5 @@ export const getAllQuestions = () => services._getQuestions();
 export const saveQuestion = question => services._saveQuestion(question);
 
 export const saveQuestionAnswer = data => services._saveQuestionAnswer(data);
+
+export const addNewUser = form => services._saveUser(form);

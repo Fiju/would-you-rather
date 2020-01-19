@@ -18,7 +18,7 @@ export const PollItem = withRouter(({ poll, author }) => (
           <i class="arrow right"></i>
           {poll.optionTwo.text}
         </small>
-        <NavLink to={`/questions/${poll.id}`}>{poll.id}</NavLink>
+        <NavLink to={`/questions/${poll.id}`}>View Poll</NavLink>
       </div>
     </div>
   </div>
