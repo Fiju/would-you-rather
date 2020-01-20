@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import classnames from "classnames";
 import { selectQuestionById } from "../../reducers/QuestionsReducer";
 import {
   selectLoggedInUser,
@@ -37,6 +38,8 @@ export default connect(
       question.optionOne.votes.length + question.optionTwo.votes.length
   };
 
+  console.log(question.optionTwo.votes.includes(user.id));
+
   return (
     <div className={styles.container}>
       <span className={styles.authorName}>{author.name} asks</span>
@@ -46,7 +49,11 @@ export default connect(
           <label>Would you Rather...</label>
           {isAnswered ? (
             <>
-              <div>
+              <div
+                className={classnames({
+                  [styles.selected]: question.optionOne.votes.includes(user.id)
+                })}
+              >
                 <label>{question.optionOne.text} </label>
                 <span>
                   {optionOneUpvote} out of {totalResponses}
@@ -56,7 +63,11 @@ export default connect(
                   In favor: {(optionOneUpvote / totalResponses) * 100}%
                 </small>
               </div>
-              <div>
+              <div
+                className={classnames({
+                  [styles.selected]: question.optionTwo.votes.includes(user.id)
+                })}
+              >
                 <label>{question.optionTwo.text} </label>
                 <span>
                   {optionTwoUpvote} out of {totalResponses}

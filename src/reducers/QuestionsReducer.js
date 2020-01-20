@@ -22,7 +22,7 @@ export default (state = moviesInitialState, { type, payload }) => {
       return {
         ...state,
         isFetching: false,
-        avilableQuestions: { ...state.avilableQuestions, payload }
+        avilableQuestions: { ...state.avilableQuestions, [payload.id]: payload }
       };
 
     case types.QUESTION_SAVE_ANSWER: {
