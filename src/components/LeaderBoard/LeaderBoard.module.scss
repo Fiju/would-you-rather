@@ -1,0 +1,28 @@
+.container {
+  .item {
+    margin-bottom: 20px;
+    .nestedContainer {
+      display: flex;
+      img {
+        height: 150px;
+        width: 150px;
+      }
+
+      .score {
+        margin-left: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      div {
+        flex: 1;
+
+        &:not(:first-child) {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}
