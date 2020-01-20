@@ -47,7 +47,7 @@ export default connect(
           {isAnswered ? (
             <>
               <div>
-                <label>{question.optionOne.text}</label>
+                <label>{question.optionOne.text} </label>
                 <span>
                   {optionOneUpvote} out of {totalResponses}
                 </span>
@@ -57,7 +57,7 @@ export default connect(
                 </small>
               </div>
               <div>
-                <label>{question.optionTwo.text}</label>
+                <label>{question.optionTwo.text} </label>
                 <span>
                   {optionTwoUpvote} out of {totalResponses}
                 </span>
