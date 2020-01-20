@@ -1,3 +1,3 @@
 export const validateForm = form => {
-  return Boolean(form.username && form.name && form.avatarURL);
+  return Boolean(form.id && form.name && form.avatarURL);
 };

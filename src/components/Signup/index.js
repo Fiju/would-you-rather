@@ -19,7 +19,7 @@ export default compose(
   connect(null, mapDispatchToProps)
 )(({ users, addUser, history }) => {
   const [formFieldValue, setFormFieldValues] = useState({
-    username: "",
+    id: "",
     name: "",
     avatarURL: ""
   });
@@ -39,7 +39,7 @@ export default compose(
           <input
             value={formFieldValue.username}
             placeholder="Username"
-            name="username"
+            name="id"
             onChange={onChange}
           />
         </fieldset>
@@ -62,7 +62,7 @@ export default compose(
         <fieldset>
           <input
             onClick={() => {
-              if (!users.find(user => user.id === formFieldValue.username)) {
+              if (!users.find(user => user.id === formFieldValue.id)) {
                 const promise = new Promise(res => {
                   addUser(formFieldValue, res);
                 });

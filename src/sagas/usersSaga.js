@@ -22,7 +22,6 @@ function* addNewUserSuccess(response, newUser) {
 function* addUser(action) {
   const newUser = {
     ...action.payload,
-    id: action.payload.username,
     answers: {},
     questions: []
   };
