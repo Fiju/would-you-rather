@@ -10,10 +10,12 @@ import {
 import styles from "./Question.module.scss";
 import { saveAnswer } from "../../actions/questionActions";
 
+import pageNotFound from "../../assets/images/page-not-found.png";
+
 const mapStateToProps = (state, ownProps) => {
   const question = selectQuestionById(state, ownProps.match.params.questionId);
   const user = selectLoggedInUser(state, state.users.loggedInUser);
-  const author = selectUserById(state, question.author);
+  const author = question ? selectUserById(state, question.author) : null;
   return {
     question,
     user,
@@ -29,6 +31,8 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(({ question, user, author, saveAnswer }) => {
+  if (!question) return <img src={pageNotFound} alt="" />;
+
   const [selectedOption, setSelectedOption] = useState(null);
   const isAnswered = Boolean(user.answers[question.id]);
   const { optionOneUpvote, optionTwoUpvote, totalResponses } = {
@@ -37,8 +41,6 @@ export default connect(
     totalResponses:
       question.optionOne.votes.length + question.optionTwo.votes.length
   };
-
-  console.log(question.optionTwo.votes.includes(user.id));
 
   return (
     <div className={styles.container}>
