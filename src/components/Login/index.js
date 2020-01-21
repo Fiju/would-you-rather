@@ -3,6 +3,7 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import withUsers from "../../containers/withUsers";
+import queryString from "query-string";
 import { userLogin } from "../../actions/usersActions";
 
 import styles from "./Login.module.scss";
@@ -39,7 +40,10 @@ export default compose(
             disabled={!selectedUser}
             onClick={() => {
               userLogin(selectedUser);
-              props.history.push("/home");
+              const { location } = props;
+              const { ref } = queryString.parse(location.search);
+              const path = ref ? ref : "/";
+              props.history.push(path);
             }}
           />
         </fieldset>

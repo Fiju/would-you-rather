@@ -18,7 +18,7 @@ export default withRouter(
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(({ user, logoutUser }) => {
+  )(({ user, logoutUser, ...props }) => {
     return (
       <section className={styles.container}>
         <nav className={styles.navContainer}>
@@ -35,7 +35,14 @@ export default withRouter(
           </div>
           <div className={styles.nav}>
             <span>{user.name}</span>
-            <span onClick={() => logoutUser()}>Logout</span>
+            <span
+              onClick={() => {
+                logoutUser();
+                props.history.push("/login");
+              }}
+            >
+              Logout
+            </span>
           </div>
         </nav>
       </section>
