@@ -27,12 +27,14 @@ export default connect(
           <input
             value={optionOne}
             onChange={e => setOptionOne(e.target.value)}
+            placeholder="Option one"
           />
         </fieldset>
         <fieldset>
           <input
             value={optionTwo}
             onChange={e => setOptionTwo(e.target.value)}
+            placeholder="Option two"
           />
         </fieldset>
         <fieldset>

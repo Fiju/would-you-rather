@@ -40,7 +40,7 @@ export default compose(
   return (
     <div className={styles.homeContainer}>
       <button
-        className={styles.toggle}
+        className={`secondary-button ${styles.toggle}`}
         onClick={() => toggleQuestionsDisplay(!showAnswered)}
       >
         Click to show {showAnswered ? "Unanswered" : "Answered"} Question

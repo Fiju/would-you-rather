@@ -1,27 +1,20 @@
+@import "../../assets/style/variables";
+
 .homeContainer {
-  button {
-    width: 250px;
-    height: 35px;
-    background-color: #912d20;
-    border: 1px solid #912d20;
-    color: white;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-
-    &:hover {
-      background-color: rgba(199, 81, 66, 0.85);
-    }
-
-    &:focus {
-      outline: none;
-    }
+  .toggle {
+    margin-left: 80%;
   }
+
+  ul {
+    list-style: none;
+  }
+
   .pollContainer {
-    border-bottom: 2px solid;
+    border-bottom: 2px solid $dark-red;
     padding: 16px 0;
     .authorName {
       font-weight: bold;
+      color: $darkest-red;
     }
 
     .innerContainer {

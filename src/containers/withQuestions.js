@@ -1,23 +1,23 @@
 import React from "react";
 import { connect } from "react-redux";
-import { requestQuestionsIfNeeded } from "../actions/questionActions";
+import { requestQuestions } from "../actions/questionActions";
 
 function mapStateToProps(state, ownProps) {
   return { state };
 }
 
 const mapDispatchToProps = {
-  requestQuestionsIfNeeded
+  requestQuestions
 };
 
 export default WrappedComponent => {
   class Container extends React.PureComponent {
     componentDidMount() {
-      this.props.requestQuestionsIfNeeded();
+      this.props.requestQuestions();
     }
 
     render() {
-      const { requestQuestionsIfNeeded, ...props } = this.props;
+      const { requestQuestions, ...props } = this.props;
       return <WrappedComponent {...props} />;
     }
   }

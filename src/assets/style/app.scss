@@ -80,3 +80,31 @@ a {
     opacity: 0.8;
   }
 }
+
+.main-body {
+  background-color: transparent;
+  width: 75%;
+  margin: auto;
+  margin-top: 3%;
+}
+
+.secondary-button {
+  width: 250px;
+  height: 35px;
+  background-color: #912d20;
+  border: 1px solid #912d20;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: rgba(145, 45, 32, 0.9);
+    border: 1px solid $darkest-red;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

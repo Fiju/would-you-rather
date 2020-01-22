@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Switch, Route } from "react-router-dom";
 
@@ -8,19 +8,22 @@ import AddQuestion from "./AddQuestion";
 import Home from "./Home";
 import LeaderBoard from "./LeaderBoard";
 import Question from "./Question";
+import { requestQuestions } from "../actions/questionActions";
 
 const mapStateToProps = state => ({ state });
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  requestQuestions
+};
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(({ state, ...props }) => {
+)(props => {
   return (
     <RequireLogin>
       <Nav />
-      <section>
+      <section className="main-body">
         <Switch>
           <Route path="/add" exact component={AddQuestion} />
           <Route path="/home" exact component={Home} />
