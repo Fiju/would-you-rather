@@ -1,13 +1,15 @@
 import React from "react";
+import { compose } from "redux";
 import { connect } from "react-redux";
 import { Switch, Route } from "react-router-dom";
 
-import RequireLogin from "./RequireLogin";
 import Nav from "./Nav";
-import AddQuestion from "./AddQuestion";
 import Home from "./Home";
-import LeaderBoard from "./LeaderBoard";
 import Question from "./Question";
+import LeaderBoard from "./LeaderBoard";
+import AddQuestion from "./AddQuestion";
+import RequireLogin from "./RequireLogin";
+import withQuestions from "../containers/withQuestions";
 import { requestQuestions } from "../actions/questionActions";
 
 const mapStateToProps = state => ({ state });
@@ -16,9 +18,9 @@ const mapDispatchToProps = {
   requestQuestions
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+export default compose(
+  withQuestions,
+  connect(mapStateToProps, mapDispatchToProps)
 )(props => {
   return (
     <RequireLogin>
