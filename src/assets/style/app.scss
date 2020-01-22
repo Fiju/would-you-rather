@@ -1,0 +1,82 @@
+@import "./variables";
+
+body {
+  margin: 0;
+  background-color: $background-color;
+}
+
+header {
+  width: 100%;
+  padding: 5rem 0 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  color: $header-text;
+  font-family: sans-serif;
+}
+
+form {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 2rem;
+  max-width: 350px;
+  width: 100%;
+  background: linear-gradient(153deg, rgba(92, 29, 21, 0.9), #45130d);
+  box-shadow: 3px 6px 20px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
+
+  fieldset {
+    border: none;
+    background-color: rgba(220, 228, 244, 0.95);
+    margin-bottom: 1rem;
+    border-radius: 3px;
+    padding: 0;
+
+    input,
+    select {
+      width: 100%;
+      height: 32px;
+      border: none;
+      background-color: transparent;
+      padding: 0 0 0 4px;
+      font-size: 13px;
+
+      &.primaryButton {
+        background: $light-gray;
+        cursor: pointer;
+        color: $primary-color;
+        padding: 0;
+        font-weight: 500;
+        letter-spacing: 0.02rem;
+        text-align: center;
+        line-height: 3.8rem;
+        box-shadow: 0px 0px 8px 3px rgba(145, 45, 32, 0.9);
+        transition: opacity 0.12s;
+        font-size: 14px;
+
+        &:hover {
+          outline: 0;
+          opacity: 0.75;
+        }
+
+        &:disabled {
+          cursor: not-allowed;
+          opacity: 0.5;
+          box-shadow: none;
+        }
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

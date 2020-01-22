@@ -37,7 +37,7 @@ export default compose(
         </fieldset>
         <fieldset>
           <input
-            className={styles.primaryButton}
+            className="primaryButton"
             readOnly
             value="Sign in"
             disabled={!selectedUser}

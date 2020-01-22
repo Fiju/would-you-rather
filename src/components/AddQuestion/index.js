@@ -46,7 +46,7 @@ export default connect(
               history.push("/home");
             }}
             readOnly
-            className={styles.primaryButton}
+            className="primaryButton"
             disabled={!Boolean(optionOne && optionTwo)}
             value="Submit"
           />
