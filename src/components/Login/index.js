@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import queryString from "query-string";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
+
 import withUsers from "../../containers/withUsers";
-import queryString from "query-string";
 import { userLogin } from "../../actions/usersActions";
 
 import styles from "./Login.module.scss";
@@ -28,7 +29,9 @@ export default compose(
           >
             <option value="">Select user...</option>
             {users.map(user => (
-              <option value={user.id}>{user.name}</option>
+              <option key={user.id} value={user.id}>
+                {user.name}
+              </option>
             ))}
           </select>
         </fieldset>

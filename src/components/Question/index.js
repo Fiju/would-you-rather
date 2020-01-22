@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
 import classnames from "classnames";
+import { connect } from "react-redux";
+
+import pageNotFound from "../../assets/images/page-not-found.png";
 import { selectQuestionById } from "../../reducers/QuestionsReducer";
 import {
   selectLoggedInUser,
   selectUserById
 } from "../../reducers/UsersReducer";
-
-import styles from "./Question.module.scss";
 import { saveAnswer } from "../../actions/questionActions";
 
-import pageNotFound from "../../assets/images/page-not-found.png";
+import styles from "./Question.module.scss";
 
 const mapStateToProps = (state, ownProps) => {
   const question = selectQuestionById(state, ownProps.match.params.questionId);

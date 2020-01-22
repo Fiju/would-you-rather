@@ -1,13 +1,13 @@
 import React, { useState } from "react";
+import { compose } from "redux";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import withUsers from "../../containers/withUsers";
+import { addUser } from "../../actions/usersActions";
 import { validateForm } from "../../lib/formValidator";
 
 import styles from "../Login/Login.module.scss";
-import { addUser } from "../../actions/usersActions";
-import { compose } from "redux";
 
 const mapDispatchToProps = {
   addUser

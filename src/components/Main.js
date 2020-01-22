@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { Switch, Route } from "react-router-dom";
-import { compose } from "redux";
-import withQuestions from "../containers/withQuestions";
+
 import RequireLogin from "./RequireLogin";
 import Nav from "./Nav";
 import AddQuestion from "./AddQuestion";

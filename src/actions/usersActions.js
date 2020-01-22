@@ -1,10 +1,10 @@
 import * as types from "./types";
 
-export function requestUsersIfNeeded() {
+export const requestUsersIfNeeded = () => {
   return {
     type: types.USER_REQUEST_IF_NEEDED
   };
-}
+};
 
 export const requestUsers = () => ({
   type: types.USER_FETCH

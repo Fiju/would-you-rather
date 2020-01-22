@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
-import withQuestions from "../../containers/withQuestions";
-import { selectQuestion } from "../../reducers/QuestionsReducer";
+
 import Loader from "../Loader";
-import { PollItem } from "./PollItem";
 import withUsers from "../../containers/withUsers";
+import withQuestions from "../../containers/withQuestions";
+import { PollItem } from "./PollItem";
+import { selectQuestion } from "../../reducers/QuestionsReducer";
 
 import styles from "./Home.module.scss";
 
@@ -46,7 +47,7 @@ export default compose(
       </button>
       <ul>
         {[...(showAnswered ? answeredQuestion : unansweredQuestion)].map(q => (
-          <li>
+          <li key={q.id}>
             <PollItem
               poll={q}
               author={users.find(user => user.id === q.author)}

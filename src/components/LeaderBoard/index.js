@@ -1,6 +1,7 @@
 import React from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
+
 import withUsers from "../../containers/withUsers";
 
 import styles from "./LeaderBoard.module.scss";
@@ -10,8 +11,9 @@ export default compose(
   connect()
 )(({ users }) => {
   const leaderBoardData = users
-    .map(({ name, answers, questions, avatarURL }) => ({
+    .map(({ name, answers, questions, avatarURL, id }) => ({
       name,
+      id,
       answers: Object.keys(answers).length,
       questions: Object.keys(questions).length,
       avatarURL
@@ -20,8 +22,8 @@ export default compose(
   return (
     <div className={styles.container}>
       <ul>
-        {leaderBoardData.map(({ name, answers, questions, avatarURL }) => (
-          <li className={styles.item}>
+        {leaderBoardData.map(({ id, name, answers, questions, avatarURL }) => (
+          <li key={id} className={styles.item}>
             <div className={styles.nestedContainer}>
               <img src={avatarURL} alt="" />
               <div className={styles.score}>

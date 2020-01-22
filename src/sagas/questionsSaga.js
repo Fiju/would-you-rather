@@ -24,10 +24,6 @@ function* saveAnswer(action) {
   yield saveQuestionAnswer(action.payload);
   yield fetchQuestions();
   yield put({ type: types.USER_FETCH });
-  // yield put({
-  //   type: types.QUESTION_SAVE_ANSWER_SUCCESS,
-  //   pyaload: action.payload
-  // });
 }
 
 // Root saga

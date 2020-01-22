@@ -2,9 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import { NavLink, withRouter } from "react-router-dom";
 
-import styles from "./Nav.module.scss";
-import { selectUserById } from "../../reducers/UsersReducer";
 import { logoutUser } from "../../actions/usersActions";
+import { selectUserById } from "../../reducers/UsersReducer";
+
+import styles from "./Nav.module.scss";
 
 const mapStateToProps = state => ({
   user: selectUserById(state, state.users.loggedInUser)
