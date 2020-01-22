@@ -1,9 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { requestQuestions } from "../actions/questionActions";
+import { selectQuestion, selectIsFetching } from "../reducers/QuestionsReducer";
 
 function mapStateToProps(state, ownProps) {
-  return { state };
+  return {
+    questions: selectQuestion(state),
+    isLoading: selectIsFetching(state)
+  };
 }
 
 const mapDispatchToProps = {

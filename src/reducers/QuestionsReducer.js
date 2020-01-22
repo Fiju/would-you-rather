@@ -3,38 +3,38 @@ import { createSelector } from "reselect";
 import * as types from "../actions/types";
 
 const moviesInitialState = {
-  isFetching: null,
+  isLoading: null,
   avilableQuestions: {}
 };
 
 export default (state = moviesInitialState, { type, payload }) => {
   switch (type) {
     case types.QUESTIONS_FETCH:
-      return { ...state, isFetching: true };
+      return { ...state, isLoading: true };
     case types.QUESTIONS_FETCH_SUCCESS:
-      return { ...state, avilableQuestions: payload, isFetching: false };
+      return { ...state, avilableQuestions: payload, isLoading: false };
     case types.QUESTIONS_ADD_REQUEST:
       return {
         ...state,
-        isFetching: true
+        isLoading: true
       };
     case types.QUESTIONS_ADD_REQUEST_SUCCESS:
       return {
         ...state,
-        isFetching: false,
+        isLoading: false,
         avilableQuestions: { ...state.avilableQuestions, [payload.id]: payload }
       };
 
     case types.QUESTION_SAVE_ANSWER: {
       return {
         ...state,
-        isFetching: true
+        isLoading: true
       };
     }
     case types.QUESTION_SAVE_ANSWER_SUCCESS: {
       return {
         ...state,
-        isFetching: false
+        isLoading: false
       };
     }
     default:
@@ -48,7 +48,7 @@ function selectLocalState(globalState) {
 
 export function selectIsFetching(globalState) {
   const state = selectLocalState(globalState);
-  return state.isFetching;
+  return state.isLoading;
 }
 
 const selectQuestionsById = createSelector(

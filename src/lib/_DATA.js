@@ -3,7 +3,7 @@ let users = {
     id: "sarahedo",
     name: "Sarah Edo",
     avatarURL:
-      "https://images.wallpaperscraft.com/image/dota_2_traxe_drow_ranger_art_milimalism_97328_1280x720.jpg",
+      "https://images.unsplash.com/photo-1579618217316-c1be6986a7bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1508&q=80",
     answers: {
       "8xf0y6ziyjabvozdd253nd": "optionOne",
       "6ni6ok3ym7mf1p33lnez": "optionTwo",
@@ -16,7 +16,7 @@ let users = {
     id: "tylermcginnis",
     name: "Tyler McGinnis",
     avatarURL:
-      "https://images.wallpaperscraft.com/image/rubicks_cube_dota_2_art_95292_1280x720.jpg",
+      "https://images.unsplash.com/photo-1579619419740-c85133508ea7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=450&h=450&q=80",
     answers: {
       vthrdm985a262al8qx3do: "optionOne",
       xj352vofupe1dqz9emx13r: "optionTwo"
@@ -27,7 +27,7 @@ let users = {
     id: "johndoe",
     name: "John Doe",
     avatarURL:
-      "https://images.wallpaperscraft.com/image/dota_2_art_sven_94281_1280x720.jpg",
+      "https://images.unsplash.com/photo-1579553617957-30677158de4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&h=934&q=80",
     answers: {
       xj352vofupe1dqz9emx13r: "optionOne",
       vthrdm985a262al8qx3do: "optionTwo",

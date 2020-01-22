@@ -4,6 +4,7 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 
+import Loader from "../Loader";
 import withUsers from "../../containers/withUsers";
 import { userLogin } from "../../actions/usersActions";
 
@@ -16,9 +17,11 @@ const mapDispatchToProps = {
 export default compose(
   withUsers,
   connect(null, mapDispatchToProps)
-)(({ users, userLogin, ...props }) => {
+)(({ users, userLogin, isFetching, ...props }) => {
   const [selectedUser, setSelectedUser] = useState("");
-  return (
+  return isFetching ? (
+    <Loader />
+  ) : (
     <main className={styles.container}>
       <header>Select user to login</header>
       <form>

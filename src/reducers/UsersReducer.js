@@ -13,7 +13,7 @@ export default (state = usersInitialState, { type, payload }) => {
     case types.USER_FETCH:
       return { ...state, isFetching: true };
     case types.USERS_FETCH_SUCCESS:
-      return { ...state, subscribedUsers: payload };
+      return { ...state, subscribedUsers: payload, isFetching: false };
     case types.USER_LOGIN:
       return {
         ...state,

@@ -1,10 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
 import { requestUsersIfNeeded } from "../actions/usersActions";
-import { selectSubscribedUsers } from "../reducers/UsersReducer";
+import {
+  selectSubscribedUsers,
+  selectIsFetching
+} from "../reducers/UsersReducer";
 
 function mapStateToProps(state, ownProps) {
-  return { users: selectSubscribedUsers(state) };
+  return {
+    users: selectSubscribedUsers(state),
+    isFetching: selectIsFetching(state)
+  };
 }
 
 const mapDispatchToProps = {

@@ -1,10 +1,14 @@
+@import "../../assets/style/variables";
+
 .container {
   width: 112px;
   height: 112px;
+  margin: auto;
+  margin-top: 10%;
   .box1,
   .box2,
   .box3 {
-    border: 16px solid #f5f5f5;
+    border: 16px solid $darkest-red;
     box-sizing: border-box;
     position: absolute;
     display: block;

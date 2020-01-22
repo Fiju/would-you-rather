@@ -37,25 +37,34 @@ export default compose(
   connect(mapStateToProps)
 )(({ answeredQuestion, unansweredQuestion, users, ...props }) => {
   const [showAnswered, toggleQuestionsDisplay] = useState(false);
+
   return (
     <div className={styles.homeContainer}>
-      <button
-        className={`secondary-button ${styles.toggle}`}
-        onClick={() => toggleQuestionsDisplay(!showAnswered)}
-      >
-        Click to show {showAnswered ? "Unanswered" : "Answered"} Question
-      </button>
-      <ul>
-        {[...(showAnswered ? answeredQuestion : unansweredQuestion)].map(q => (
-          <li key={q.id}>
-            <PollItem
-              poll={q}
-              author={users.find(user => user.id === q.author)}
-            />
-          </li>
-        ))}
-      </ul>
-      <Loader />
+      {props.isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          {" "}
+          <button
+            className={`secondary-button ${styles.toggle}`}
+            onClick={() => toggleQuestionsDisplay(!showAnswered)}
+          >
+            Click to show {showAnswered ? "Unanswered" : "Answered"} Question
+          </button>
+          <ul>
+            {[...(showAnswered ? answeredQuestion : unansweredQuestion)].map(
+              q => (
+                <li key={q.id}>
+                  <PollItem
+                    poll={q}
+                    author={users.find(user => user.id === q.author)}
+                  />
+                </li>
+              )
+            )}
+          </ul>
+        </>
+      )}
     </div>
   );
 });
